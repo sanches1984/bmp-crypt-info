@@ -21,7 +21,7 @@ func New(level CryptLevel) *Worker {
 }
 
 func (w Worker) GetMaxSecretSize(data []byte) int {
-	v := (len(data)-bmpHeaderOffset)/int(w.level) - 1
+	v := (len(data)-bmpHeaderOffset-3)/int(w.level) - 1
 	if v < 0 {
 		v = 0
 	}
